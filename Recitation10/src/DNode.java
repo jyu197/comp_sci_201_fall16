@@ -27,11 +27,12 @@ public class DNode {
 	}
 	
 	public void splice(DNode list, String str) {
-		while (list.next != null) {
-			list.next = addFront(list.next, str);
-			list = list.next.next;
+		DNode current = list;
+		while (current.next != null) {
+			current.next = addFront(current.next, str);
+			current = current.next.next;
 		}
-		list.next = new DNode(str, list, null);
+		current.next = new DNode(str, list, null);
 	}
 	
 }
